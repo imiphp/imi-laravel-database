@@ -1,0 +1,23 @@
+parameters:
+    level: 6
+
+    phpVersion: 80000
+
+    paths:
+        - src
+        - tests
+
+    # excludePaths:
+    #     - */vendor/*
+
+    bootstrapFiles:
+        - vendor/autoload.php
+        - split-repository/vendor/autoload.php
+
+    treatPhpDocTypesAsCertain: false
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
+
+    # ignoreErrors:
+    #     - '#is never read, only written#'
