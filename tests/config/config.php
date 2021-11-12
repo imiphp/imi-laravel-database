@@ -47,7 +47,7 @@ return [
     // 连接池配置
     'pools'    => [
         // 主数据库
-        'maindb'    => [
+        'mysql'    => [
             'pool'    => [
                 // 协程池类名
                 'class'    => \Imi\Swoole\Db\Pool\CoroutineDbPool::class,
@@ -72,16 +72,6 @@ return [
     // db 配置
     'db' => [
         // 默认连接池名
-        'defaultPool' => 'maindb',
-        'connections' => [
-            'maindb' => [
-                'host'        => imiGetEnv('MYSQL_SERVER_HOST', '127.0.0.1'),
-                'port'        => imiGetEnv('MYSQL_SERVER_PORT', 3306),
-                'username'    => imiGetEnv('MYSQL_SERVER_USERNAME', 'root'),
-                'password'    => imiGetEnv('MYSQL_SERVER_PASSWORD', 'root'),
-                'database'    => 'db_imi_test',
-                'charset'     => 'utf8mb4',
-            ],
-        ],
+        'defaultPool' => 'mysql',
     ],
 ];

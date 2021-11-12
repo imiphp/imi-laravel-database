@@ -13,5 +13,5 @@ class ModelTest extends ModelBaseTest
      *
      * @var string
      */
-    protected $poolName = 'maindb';
+    protected $poolName = 'mysql';
 }

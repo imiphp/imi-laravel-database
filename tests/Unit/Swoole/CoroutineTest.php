@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Imi\Laravel\Database\Test\Unit\Model;
+namespace Imi\Laravel\Database\Test\Unit\Swoole;
 
 use Illuminate\Support\Facades\DB;
 use Imi\Laravel\Database\Test\Model\Member;

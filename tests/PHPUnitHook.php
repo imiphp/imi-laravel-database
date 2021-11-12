@@ -17,24 +17,8 @@ class PHPUnitHook implements BeforeFirstTestHook
     public function executeBeforeFirstTest(): void
     {
         Event::on('IMI.APP_RUN', function (EventParam $param) {
-            PoolManager::use('maindb', function (IPoolResource $resource, IDb $db) {
-                $truncateList = [
-                    'tb_article',
-                    'tb_article2',
-                    'tb_article_ex',
-                    'tb_member',
-                    'tb_member_role_relation',
-                    'tb_update_time',
-                    'tb_performance',
-                    'tb_polymorphic',
-                    'tb_test_json',
-                    'tb_test_list',
-                    'tb_test_soft_delete',
-                ];
-                foreach ($truncateList as $table)
-                {
-                    $db->exec('TRUNCATE ' . $table);
-                }
+            PoolManager::use('mysql', function (IPoolResource $resource, IDb $db) {
+                $db->batchExec(file_get_contents(__DIR__ . '/db/mysql.sql'));
             });
         }, 1);
         App::run('Imi\Laravel\Database\Test', TestApp::class);

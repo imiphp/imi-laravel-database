@@ -13,5 +13,5 @@ class DbQueryTest extends DbBaseTest
      *
      * @var string
      */
-    protected $poolName = 'maindb';
+    protected $poolName = 'mysql';
 }
