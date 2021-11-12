@@ -33,7 +33,6 @@ services:
     volumes:
       - "${GITHUB_WORKSPACE}:/imi:rw"
       - "/tmp/composer:/root/.composer/cache/files:rw"
-      - shared-volume:/tmp/docker
     working_dir: /imi
     command: tail -f /dev/null
 
