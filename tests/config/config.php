@@ -61,7 +61,7 @@ return [
             // 连接池资源配置
             'resource'    => [
                 'host'        => imiGetEnv('MYSQL_SERVER_HOST', '127.0.0.1'),
-                'port'        => imiGetEnv('MYSQL_SERVER_PORT', 3306),
+                'port'        => (int) imiGetEnv('MYSQL_SERVER_PORT', 3306),
                 'username'    => imiGetEnv('MYSQL_SERVER_USERNAME', 'root'),
                 'password'    => imiGetEnv('MYSQL_SERVER_PASSWORD', 'root'),
                 'database'    => 'db_imi_test',

@@ -30,7 +30,7 @@ abstract class DbBaseTest extends TestCase
         // @phpstan-ignore-next-line
         $this->assertEquals(1, $db->getPdo()->lastInsertId());
 
-            // @phpstan-ignore-next-line
+        // @phpstan-ignore-next-line
         return ['id' => $db->getPdo()->lastInsertId()];
     }
 
