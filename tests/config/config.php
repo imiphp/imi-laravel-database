@@ -53,7 +53,7 @@ return [
                 'class'    => \Imi\Swoole\Db\Pool\CoroutineDbPool::class,
                 // 连接池配置
                 'config'        => [
-                    'maxResources'              => 10,
+                    'maxResources'              => 16,
                     'minResources'              => 0,
                     'checkStateWhenGetResource' => false,
                 ],

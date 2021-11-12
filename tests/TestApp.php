@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Imi\Laravel\Database\Test;
 
-use Imi\Cli\CliApp;
 use Imi\Core\App\Enum\LoadRuntimeResult;
+use Imi\Swoole\SwooleApp;
 
-class TestApp extends CliApp
+class TestApp extends SwooleApp
 {
     /**
      * 运行应用.

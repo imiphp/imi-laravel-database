@@ -17,7 +17,6 @@ class PHPUnitHook implements BeforeFirstTestHook
     public function executeBeforeFirstTest(): void
     {
         Event::on('IMI.APP_RUN', function (EventParam $param) {
-            $param->stopPropagation();
             PoolManager::use('maindb', function (IPoolResource $resource, IDb $db) {
                 $truncateList = [
                     'tb_article',

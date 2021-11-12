@@ -15,6 +15,9 @@
         <testsuite name="model">
             <directory>Unit/Model</directory>
         </testsuite>
+        <testsuite name="swoole">
+            <directory>Unit/Swoole</directory>
+        </testsuite>
     </testsuites>
     <extensions>
         <extension class="Imi\Laravel\Database\Test\PHPUnitHook" />
