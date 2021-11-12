@@ -6,6 +6,11 @@ namespace Imi\Laravel\Database\Test\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int    $id
+ * @property string $username
+ * @property string $password
+ */
 class Member extends Model
 {
     /**

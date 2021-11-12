@@ -20,6 +20,7 @@ class AppRunListener implements IEventListener
      */
     public function handle(EventParam $e): void
     {
+        // @phpstan-ignore-next-line
         Model::setConnectionResolver(App::getBean('LaravelConnectionResolver'));
     }
 }

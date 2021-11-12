@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Imi\Laravel\Database\Test\Unit\Db;
 
-use PHPUnit\Framework\TestCase;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\ConnectionInterface;
+use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\TestCase;
 
 abstract class DbBaseTest extends TestCase
 {
@@ -27,8 +27,10 @@ abstract class DbBaseTest extends TestCase
         $db = $this->getConnection();
         $db->select('TRUNCATE tb_article');
         $this->assertTrue($db->insert('insert into tb_article(title,content,time)values(?, ?, ?)', ['title', 'content', '2019-06-21']));
+        // @phpstan-ignore-next-line
         $this->assertEquals(1, $db->getPdo()->lastInsertId());
 
+            // @phpstan-ignore-next-line
         return ['id' => $db->getPdo()->lastInsertId()];
     }
 
