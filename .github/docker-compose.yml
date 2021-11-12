@@ -1,5 +1,12 @@
 version: "3.4"
+volumes:
+  shared-volume:
 services:
+  shared-tmp:
+    image: busybox
+    command: chmod -R 777 /tmp/docker
+    volumes:
+      - shared-volume:/tmp/docker
   mysql:
     image: mysql:${MYSQL_DOCKER_VERSION}
     container_name: mysql
@@ -21,6 +28,7 @@ services:
   swoole:
     container_name: "swoole"
     depends_on:
+      - shared-tmp
       - mysql
     environment:
       MYSQL_SERVER_HOST: mysql
@@ -33,6 +41,7 @@ services:
     volumes:
       - "${GITHUB_WORKSPACE}:/imi:rw"
       - "/tmp/composer:/root/.composer/cache/files:rw"
+      - shared-volume:/tmp/docker
     working_dir: /imi
     command: tail -f /dev/null
 

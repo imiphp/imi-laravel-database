@@ -30,8 +30,8 @@
 
 其它使用完全一致，命令行功能暂未实现，逐步开发完善中。
 
-[imi 完全开发手册](https://doc.imiphp.com/v2.0/)
-[Laravel 中文文档](https://learnku.com/docs/laravel/8.5/database/10403#2b27b3)
+* [imi 完全开发手册](https://doc.imiphp.com/v2.0/)
+* [Laravel 中文文档](https://learnku.com/docs/laravel/8.5/database/10403#2b27b3)
 
 ## 运行环境
 
@@ -43,6 +43,6 @@
 
 ## 捐赠
 
-![捐赠](https://cdn.jsdelivr.net/gh/imiphp/imi-laravel-database@2.0/res/pay.png)
+![捐赠](https://cdn.jsdelivr.net/gh/imiphp/imi@2.0/res/pay.png)
 
 开源不求盈利，多少都是心意，生活不易，随缘随缘……
