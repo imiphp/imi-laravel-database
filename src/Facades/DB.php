@@ -38,7 +38,7 @@ use Imi\App;
  * @method static void setDefaultConnection(string $name)
  *
  * @see \Imi\Laravel\Database\ConnectionResolver
- * @see \Imi\Laravel\Database\Connection
+ * @see \Illuminate\Database\Connection
  */
 class DB
 {

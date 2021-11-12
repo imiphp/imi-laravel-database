@@ -9,8 +9,11 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="test">
-            <directory>Unit</directory>
+        <testsuite name="db">
+            <directory>Unit/Db</directory>
+        </testsuite>
+        <testsuite name="model">
+            <directory>Unit/Model</directory>
         </testsuite>
     </testsuites>
     <extensions>

@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Imi\Laravel\Database;
 
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\PostgresConnection;
 use Imi\Bean\Annotation\Bean;
 use Imi\Db\Db;
 use Imi\Laravel\Database\Contract\ConnectionResolverInterface;
+use InvalidArgumentException;
 
 /**
  * @Bean("LaravelConnectionResolver")
@@ -20,7 +23,15 @@ class ConnectionResolver implements ConnectionResolverInterface
      */
     public function connection($name = null)
     {
-        return new Connection(Db::getInstance($name ?? $this->defaultConnection)->getInstance());
+        $instance = Db::getInstance($name ?? $this->defaultConnection);
+        switch ($instance->getDbType())
+        {
+            case 'MySQL':
+                return new MySqlConnection($instance->getInstance());
+            case 'PostgreSQL':
+                return new PostgresConnection($instance->getInstance());
+        }
+        throw new InvalidArgumentException("Unsupported driver [{$instance->getDbType()}].");
     }
 
     /**

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Imi\Laravel\Database\Test\Unit\Db;
 
-use Illuminate\Support\Facades\DB;
-use Imi\Laravel\Database\Contract\ConnectionInterface;
 use PHPUnit\Framework\TestCase;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\ConnectionInterface;
 
 abstract class DbQueryBaseTest extends TestCase
 {
