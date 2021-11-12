@@ -24,3 +24,5 @@ runs:
         docker exec ${{ inputs.env }} composer config -g process-timeout 600
         docker exec ${{ inputs.env }} composer update --no-interaction --prefer-dist --no-progress
         docker ps
+        docker exec ${{ inputs.env }} php .github/check-mysql.php
+        docker ps
