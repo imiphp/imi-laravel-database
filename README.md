@@ -26,9 +26,9 @@
 
 配置好 imi 的数据库连接池，目前只支持 pdo_mysql。
 
-类 `\Illuminate\Support\Facades\DB` 使用 `\Illuminate\Support\Facades\DB` 替代。
+支持 database、orm 功能。
 
-其它使用完全一致，命令行功能暂未实现，逐步开发完善中。
+命令行功能等其它功能暂未实现，逐步开发完善中。
 
 * [imi 完全开发手册](https://doc.imiphp.com/v2.0/)
 * [Laravel 中文文档](https://learnku.com/docs/laravel/8.5/database/10403#2b27b3)
