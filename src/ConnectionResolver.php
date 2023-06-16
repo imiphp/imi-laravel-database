@@ -8,7 +8,6 @@ use Illuminate\Database\MySqlConnection;
 use Imi\Bean\Annotation\Bean;
 use Imi\Db\Db;
 use Imi\Laravel\Database\Contract\ConnectionResolverInterface;
-use InvalidArgumentException;
 
 /**
  * @Bean("LaravelConnectionResolver")
@@ -28,7 +27,7 @@ class ConnectionResolver implements ConnectionResolverInterface
             case 'MySQL':
                 return new MySqlConnection($instance->getInstance());
         }
-        throw new InvalidArgumentException("Unsupported driver [{$instance->getDbType()}].");
+        throw new \InvalidArgumentException("Unsupported driver [{$instance->getDbType()}].");
     }
 
     /**

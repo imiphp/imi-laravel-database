@@ -6,7 +6,7 @@ jobs:
   tests:
     runs-on: ubuntu-20.04
     env:
-      SWOOLE_DOCKER_VERSION: 4.7-php7.4
+      SWOOLE_DOCKER_VERSION: 4.8-php7.4
       ENV_SERVICE: swoole-only
     steps:
       - name: Checkout
@@ -16,6 +16,8 @@ jobs:
         run: |
           docker-compose -f ./.github/docker-compose.yml up -d ${ENV_SERVICE}
           docker exec ${ENV_SERVICE} php -v
+          docker exec ${ENV_SERVICE} php -m
+          docker exec ${ENV_SERVICE} php --ri swoole
           docker exec ${ENV_SERVICE} composer -V
           docker exec ${ENV_SERVICE} composer update --no-interaction --prefer-dist --no-progress
 
