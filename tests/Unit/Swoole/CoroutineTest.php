@@ -16,12 +16,16 @@ class CoroutineTest extends TestCase
     {
         $waitGroup = new WaitGroup();
         $time = microtime(true);
-        for ($i = 0; $i < 10; ++$i) {
+        for ($i = 0; $i < 10; ++$i)
+        {
             $waitGroup->add();
             Coroutine::create(function () use ($waitGroup) {
-                try {
+                try
+                {
                     DB::statement('select sleep(1)');
-                } finally {
+                }
+                finally
+                {
                     $waitGroup->done();
                 }
             });
@@ -34,12 +38,16 @@ class CoroutineTest extends TestCase
     {
         $waitGroup = new WaitGroup();
         $time = microtime(true);
-        for ($i = 0; $i < 10; ++$i) {
+        for ($i = 0; $i < 10; ++$i)
+        {
             $waitGroup->add();
             Coroutine::create(function () use ($waitGroup) {
-                try {
+                try
+                {
                     Member::query()->find(1);
-                } finally {
+                }
+                finally
+                {
                     $waitGroup->done();
                 }
             });
