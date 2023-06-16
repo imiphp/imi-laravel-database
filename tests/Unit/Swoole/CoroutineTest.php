@@ -7,6 +7,7 @@ namespace Imi\Laravel\Database\Test\Unit\Swoole;
 use Illuminate\Support\Facades\DB;
 use Imi\Laravel\Database\Test\Model\Member;
 use PHPUnit\Framework\TestCase;
+use Swoole\Coroutine;
 use Swoole\Coroutine\WaitGroup;
 
 class CoroutineTest extends TestCase
@@ -15,16 +16,12 @@ class CoroutineTest extends TestCase
     {
         $waitGroup = new WaitGroup();
         $time = microtime(true);
-        for ($i = 0; $i < 10; ++$i)
-        {
+        for ($i = 0; $i < 10; ++$i) {
             $waitGroup->add();
-            imigo(function () use ($waitGroup) {
-                try
-                {
+            Coroutine::create(function () use ($waitGroup) {
+                try {
                     DB::statement('select sleep(1)');
-                }
-                finally
-                {
+                } finally {
                     $waitGroup->done();
                 }
             });
@@ -37,16 +34,12 @@ class CoroutineTest extends TestCase
     {
         $waitGroup = new WaitGroup();
         $time = microtime(true);
-        for ($i = 0; $i < 10; ++$i)
-        {
+        for ($i = 0; $i < 10; ++$i) {
             $waitGroup->add();
-            imigo(function () use ($waitGroup) {
-                try
-                {
+            Coroutine::create(function () use ($waitGroup) {
+                try {
                     Member::query()->find(1);
-                }
-                finally
-                {
+                } finally {
                     $waitGroup->done();
                 }
             });
